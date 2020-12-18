@@ -43,7 +43,9 @@ namespace Final_Lab_Assignment
 
         public DataAccess()
         {
-            this.Sqlcon = new SqlConnection(@"Data Source=DESKTOP-32IK7D6;Initial Catalog=final_cSharp;User ID=sa;Password=fahim");
+            this.Sqlcon = new SqlConnection(@"Data Source=DESKTOP-32IK7D6;
+                                        Initial Catalog=final_cSharp;
+                                        User ID=sa;Password=fahim");
             Sqlcon.Open();
         }
 
