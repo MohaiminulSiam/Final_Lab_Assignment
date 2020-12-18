@@ -34,19 +34,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.accountInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgv_events = new System.Windows.Forms.DataGridView();
+            this.btn_createEvent = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgv_events = new System.Windows.Forms.DataGridView();
             this.event_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.event_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_createEvent = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_events)).BeginInit();
@@ -74,23 +74,23 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // accountInfoToolStripMenuItem
             // 
             this.accountInfoToolStripMenuItem.Name = "accountInfoToolStripMenuItem";
-            this.accountInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accountInfoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.accountInfoToolStripMenuItem.Text = "Account Info";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // panel1
             // 
@@ -101,6 +101,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1158, 734);
             this.panel1.TabIndex = 2;
+            // 
+            // btn_createEvent
+            // 
+            this.btn_createEvent.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_createEvent.FlatAppearance.BorderSize = 0;
+            this.btn_createEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_createEvent.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_createEvent.Location = new System.Drawing.Point(928, 678);
+            this.btn_createEvent.Name = "btn_createEvent";
+            this.btn_createEvent.Size = new System.Drawing.Size(218, 45);
+            this.btn_createEvent.TabIndex = 2;
+            this.btn_createEvent.Text = "Create New Event";
+            this.btn_createEvent.UseVisualStyleBackColor = false;
+            this.btn_createEvent.Click += new System.EventHandler(this.btn_createEvent_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Swis721 BlkCn BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "All Events";
             // 
             // dgv_events
             // 
@@ -151,16 +175,6 @@
             this.dgv_events.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_events.Size = new System.Drawing.Size(1134, 631);
             this.dgv_events.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Swis721 BlkCn BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "All Events";
             // 
             // event_id
             // 
@@ -215,19 +229,6 @@
             this.priority.HeaderText = "Priority";
             this.priority.Name = "priority";
             this.priority.ReadOnly = true;
-            // 
-            // btn_createEvent
-            // 
-            this.btn_createEvent.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_createEvent.FlatAppearance.BorderSize = 0;
-            this.btn_createEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_createEvent.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_createEvent.Location = new System.Drawing.Point(928, 678);
-            this.btn_createEvent.Name = "btn_createEvent";
-            this.btn_createEvent.Size = new System.Drawing.Size(218, 45);
-            this.btn_createEvent.TabIndex = 2;
-            this.btn_createEvent.Text = "Create New Event";
-            this.btn_createEvent.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 

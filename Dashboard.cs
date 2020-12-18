@@ -16,10 +16,11 @@ namespace Final_Lab_Assignment
         private Form loginForm { get; set; }
         private User user { get; set; }
         private EventRepo EventRepo { get; set; }
-        public Dashboard()
+        public Dashboard(User user)
         {
             InitializeComponent();
             this.EventRepo = new EventRepo();
+            this.user = user;
         }
 
         public Dashboard(Form loginForm,User user)
@@ -46,6 +47,12 @@ namespace Final_Lab_Assignment
             this.dgv_events.AutoGenerateColumns = false;
             this.dgv_events.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dgv_events.DataSource = this.EventRepo.GetDiaryEvents(user_FK);
+        }
+
+        private void btn_createEvent_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new CreateEvent(this.user).ShowDialog();
         }
     }
 }

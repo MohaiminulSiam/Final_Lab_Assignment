@@ -79,26 +79,12 @@ namespace Final_Lab_Assignment.Classes
             bool added = false;
             try
             {
-                string query = null;
-                var sql = "select * from diary_events where event_id = '" + diaryEvent.event_id + "';";
-                var dt = DataAccess.GetDataTable(sql);
-                if (dt == null || dt.Rows.Count == 0)
+                var query = @"INSERT INTO diary_events( title,description,post_date,last_modify_date,priority,user_FK) " +
+                        "VALUES ('" + diaryEvent.title + "','" + diaryEvent.description + "','" + diaryEvent.post_date + "','" + diaryEvent.last_modify_date + "','" + diaryEvent.priority + "','" + diaryEvent.user_FK + "') ;";
+                int insRow = DataAccess.ExecuteQuery(query);
+                if (insRow == 1)
                 {
-                    query = @"INSERT INTO diary_events( title,description,post_date,last_modify_date,priority,user_FK) " +
-                        "VALUES ('" + diaryEvent.title + "','" + diaryEvent.description + "','" + diaryEvent.post_date + "','" + diaryEvent.last_modify_date + "','" + diaryEvent.priority + "','" + diaryEvent.user_FK+ "') ;";
-                    int insRow = DataAccess.ExecuteQuery(query);
-                    if (insRow == 1)
-                    {
-                        added = true;
-                    }
-                    else
-                    {
-                        added = false;
-                    }
-                }
-                else
-                {
-                    this.UpdateDiaryEvent(diaryEvent);
+                    added = true;
                 }
             }
             catch (Exception e)
