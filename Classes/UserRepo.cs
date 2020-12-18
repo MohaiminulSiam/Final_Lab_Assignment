@@ -49,13 +49,19 @@ namespace Final_Lab_Assignment.Classes
             return user;
         }
 
-        internal static bool UpdateDiaryEvent(DiaryEvents diaryEvent)
+        internal static bool UpdateUser(User user)
         {
             bool inserted = false;
             try
             {
-                string updateQuery = @"UPDATE diary_events SET title = '" + diaryEvent.title + "', description = " + diaryEvent.description + " , last_modify_date = '" + DateTime.Now.ToString("yyyy-MM-dd") +
-                                    "', priority = '" + diaryEvent.priority + "', image = '" + diaryEvent.image + "' WHERE event_id = '" + diaryEvent.event_id + "';";
+                string updateQuery = @"UPDATE [dbo].[users]
+                                       SET [name] = '" + user.name +
+                                          "',[email] = '" + user.email +
+                                          "',[password] = '" + user.password +
+                                          "',[phone] = '" + user.phone +
+                                          "',[address] = '" + user.address +
+                                          "',[image] = '" + user.image +
+                                     "WHERE user_id = '" +  user.user_id + "'";
                 int row = DataAccess.ExecuteQuery(updateQuery);
                 if (row == 1)
                 {
