@@ -8,3 +8,4 @@ E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment_co
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment_code.pdb
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.exe
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.pdb
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.Dashboard.resources

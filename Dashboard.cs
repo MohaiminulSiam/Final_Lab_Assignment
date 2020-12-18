@@ -16,5 +16,11 @@ namespace Final_Lab_Assignment_code
         {
             InitializeComponent();
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new LoginForm().ShowDialog();
+        }
     }
 }

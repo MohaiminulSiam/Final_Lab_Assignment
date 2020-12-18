@@ -29,20 +29,28 @@ namespace Final_Lab_Assignment_code
                                "'and password = '" + this.password_txtBox.Text + "';";
                 DataSet ds = Da.ExecuteQuery(query);
                 int serial = 0;
-                while (serial <= (ds.Tables[0].Rows.Count - 1))
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (ds.Tables[0].Rows[serial][2].ToString().Equals(this.email_txtBox.Text) && ds.Tables[0].Rows[serial][3].ToString().Equals(this.password_txtBox.Text))
+                    while (serial <= (ds.Tables[0].Rows.Count - 1))
                     {
-                        this.Hide();
-                        Dashboard dashboard = new Dashboard();
-                        dashboard.ShowDialog();
+                        if (ds.Tables[0].Rows[serial][2].ToString().Equals(this.email_txtBox.Text) && ds.Tables[0].Rows[serial][3].ToString().Equals(this.password_txtBox.Text))
+                        {
+                            this.Hide();
+                            Dashboard dashboard = new Dashboard();
+                            dashboard.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Log in failed...\n Password or user name did not match !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        }
+                        serial++;
                     }
-                    else
-                    {
-                        MessageBox.Show("Log in failed...\n Password or user name did not match !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                    }
-                    serial++;
                 }
+                else
+                {
+                    MessageBox.Show("Log in failed...\n Password or user name did not match !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+                
             }
             catch (Exception exc)
             {

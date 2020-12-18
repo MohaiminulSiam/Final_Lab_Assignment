@@ -59,6 +59,7 @@
             this.password_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_txtBox.Location = new System.Drawing.Point(132, 208);
             this.password_txtBox.Name = "password_txtBox";
+            this.password_txtBox.PasswordChar = '*';
             this.password_txtBox.Size = new System.Drawing.Size(313, 29);
             this.password_txtBox.TabIndex = 2;
             this.password_txtBox.Click += new System.EventHandler(this.password_OnClick);
@@ -108,6 +109,7 @@
             this.Controls.Add(this.email_txtBox);
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
             this.ResumeLayout(false);
             this.PerformLayout();
