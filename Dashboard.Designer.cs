@@ -38,6 +38,7 @@
             this.dgv_events = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.event_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.event_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +105,7 @@
             this.dgv_events.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_events.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.event_id,
+            this.image,
             this.event_title,
             this.created_at,
             this.modify_date,
@@ -133,6 +135,13 @@
             this.event_id.ReadOnly = true;
             this.event_id.ToolTipText = "Event ID";
             // 
+            // image
+            // 
+            this.image.DataPropertyName = "image";
+            this.image.HeaderText = "Image";
+            this.image.Name = "image";
+            this.image.ReadOnly = true;
+            // 
             // event_title
             // 
             this.event_title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -145,6 +154,7 @@
             // created_at
             // 
             this.created_at.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.created_at.DataPropertyName = "post_date";
             this.created_at.HeaderText = "Create Date";
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
@@ -153,6 +163,7 @@
             // modify_date
             // 
             this.modify_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.modify_date.DataPropertyName = "last_modify_date";
             this.modify_date.HeaderText = "Modified At";
             this.modify_date.Name = "modify_date";
             this.modify_date.ReadOnly = true;
@@ -198,6 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_events;
         private System.Windows.Forms.DataGridViewTextBoxColumn event_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn event_title;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn modify_date;

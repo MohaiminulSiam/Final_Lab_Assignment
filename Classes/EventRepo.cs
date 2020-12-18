@@ -14,27 +14,25 @@ namespace Final_Lab_Assignment_code.Classes
     {
         private DiaryEvents ConvertToEntity(DataRow dataRow)
         {
-            var employee = new DiaryEvents();
-            employee.empId = dataRow["empId"].ToString();
-            employee.name = dataRow["name"].ToString();
-            employee.designation = dataRow["designation"].ToString();
-            employee.salary = float.Parse(dataRow["salary"].ToString());
-            employee.bonus = Double.Parse(dataRow["bonus"].ToString());
-            employee.rating = Double.Parse(dataRow["rating"].ToString());
-            employee.overtime = Int32.Parse(dataRow["overtime"].ToString());
-            employee.eligible = Boolean.Parse(dataRow["eligible"].ToString());
-            employee.personId = Int32.Parse(dataRow["personId"].ToString());
-            return employee;
+            var diary_event = new DiaryEvents();
+            diary_event.event_id = dataRow["event_id"].ToString();
+            diary_event.title = dataRow["title"].ToString();
+            diary_event.description = dataRow["description"].ToString();
+            diary_event.post_date = DateTime.Parse(dataRow["post_date"].ToString());
+            diary_event.last_modify_date = DateTime.Parse(dataRow["last_modify_date"].ToString());
+            diary_event.priority = Int32.Parse(dataRow["priority"].ToString());
+            diary_event.image = dataRow["image"].ToString();
+            return diary_event;
         }
 
-        internal bool DeleteEmployee(string id)
+        internal bool DeleteDiaryEvent(string id)
         {
             bool delete = false;
             try
             {
-                string deleteQuery = "DELETE FROM Employee WHERE empId = '" + id + "';";
-                var empDelete = DataAccess.ExecuteUpdateQuery(deleteQuery);
-                if (empDelete == 1)
+                string deleteQuery = "DELETE FROM diary_events WHERE event_id = '" + id + "';";
+                var eventDelete = DataAccess.ExecuteQuery(deleteQuery);
+                if (eventDelete == 1)
                 {
                     delete = true;
                 }
@@ -51,14 +49,14 @@ namespace Final_Lab_Assignment_code.Classes
             return delete;
         }
 
-        internal bool UpdateEmployee(DiaryEvents emp)
+        internal bool UpdateDiaryEvent(DiaryEvents diaryEvent)
         {
             bool inserted = false;
             try
             {
-                string updateQuery = @"UPDATE Employee SET designation = '" + emp.designation + "', salary = " + emp.salary + " , bonus = " + emp.bonus +
-                                    ", rating = " + emp.rating + " WHERE empId = '" + emp.empId + "';";
-                int row = DataAccess.ExecuteUpdateQuery(updateQuery);
+                string updateQuery = @"UPDATE diary_events SET title = '" + diaryEvent.title + "', description = " + diaryEvent.description + " , last_modify_date = '" + DateTime.Now.ToString("yyyy-MM-dd") +
+                                    "', priority = '" + diaryEvent.priority + "', image = '" + diaryEvent.image + "' WHERE event_id = '" + diaryEvent.event_id + "';";
+                int row = DataAccess.ExecuteQuery(updateQuery);
                 if (row == 1)
                 {
                     inserted = true;
@@ -71,19 +69,19 @@ namespace Final_Lab_Assignment_code.Classes
             return inserted;
         }
 
-        internal bool AddEmployee(DiaryEvents employee)
+        internal bool AddDiaryEvent(DiaryEvents diaryEvent)
         {
             bool added = false;
             try
             {
                 string query = null;
-                var sql = "select * from Employee where empId = '" + employee.empId + "';";
-                var dt = DataAccessUpdated.GetDataTable(sql);
+                var sql = "select * from diary_events where empId = '" + diaryEvent.event_id + "';";
+                var dt = DataAccess.GetDataTable(sql);
                 if (dt == null || dt.Rows.Count == 0)
                 {
-                    query = @"INSERT INTO Employee( empId, name,designation,salary,bonus,rating,overtime,eligible ,personId) " +
-                        "VALUES ('" + employee.empId + "','" + employee.name + "','" + employee.designation + "'," + employee.salary + "," + employee.bonus + ", 0 , 0 ,'" + employee.eligible + "'," + employee.personId + ") ;";
-                    int insRow = DataAccess.ExecuteUpdateQuery(query);
+                    query = @"INSERT INTO Employee( title,description,post_date,last_modify_date,priority,overtime,eligible ,personId) " +
+                        "VALUES ('" + diaryEvent.title + "','" + diaryEvent.description + "','" + diaryEvent.post_date + "','" + diaryEvent.last_modify_date + "','" + diaryEvent.priority + "') ;";
+                    int insRow = DataAccess.ExecuteQuery(query);
                     if (insRow == 1)
                     {
                         added = true;
@@ -95,7 +93,7 @@ namespace Final_Lab_Assignment_code.Classes
                 }
                 else
                 {
-                    this.UpdateEmployee(employee);
+                    this.UpdateDiaryEvent(diaryEvent);
                 }
             }
             catch (Exception e)
@@ -106,19 +104,19 @@ namespace Final_Lab_Assignment_code.Classes
             return added;
         }
 
-        internal List<DiaryEvents> GetEmployees()
+        internal List<DiaryEvents> GetDiaryEvents()
         {
-            List<DiaryEvents> employees = new List<DiaryEvents>();
+            List<DiaryEvents> diaryEvents = new List<DiaryEvents>();
             try
             {
-                var query = @"SELECT * FROM Employee; ";
-                var dt = DataAccessUpdated.GetDataTable(query);
+                var query = @"SELECT * FROM diary_events; ";
+                var dt = DataAccess.GetDataTable(query);
                 int index = 0;
                 while (index < dt.Rows.Count)
                 {
-                    DiaryEvents employee = new DiaryEvents();
-                    employee = ConvertToEntity(dt.Rows[index]);
-                    employees.Add(employee);
+                    DiaryEvents diaryEvent = new DiaryEvents();
+                    diaryEvent = ConvertToEntity(dt.Rows[index]);
+                    diaryEvents.Add(diaryEvent);
                     index++;
                 }
             }
@@ -126,7 +124,7 @@ namespace Final_Lab_Assignment_code.Classes
             {
                 return null;
             }
-            return employees;
+            return diaryEvents;
         }
     }
 }

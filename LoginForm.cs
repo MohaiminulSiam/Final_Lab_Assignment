@@ -27,13 +27,13 @@ namespace Final_Lab_Assignment_code
             {
                 string query = @"select * from users where email = '" + this.email_txtBox.Text +
                                "'and password = '" + this.password_txtBox.Text + "';";
-                DataSet ds = Da.ExecuteQuery(query);
+                DataTable ds = DataAccess.GetDataTable(query);
                 int serial = 0;
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds.Rows.Count > 0)
                 {
-                    while (serial <= (ds.Tables[0].Rows.Count - 1))
+                    while (serial <= (ds.Rows.Count - 1))
                     {
-                        if (ds.Tables[0].Rows[serial][2].ToString().Equals(this.email_txtBox.Text) && ds.Tables[0].Rows[serial][3].ToString().Equals(this.password_txtBox.Text))
+                        if (ds.Rows[serial][2].ToString().Equals(this.email_txtBox.Text) && ds.Rows[serial][3].ToString().Equals(this.password_txtBox.Text))
                         {
                             this.Hide();
                             Dashboard dashboard = new Dashboard();

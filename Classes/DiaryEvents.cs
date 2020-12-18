@@ -15,6 +15,5 @@ namespace Final_Lab_Assignment_code.Classes
         public DateTime last_modify_date { get; set; }
         public int priority { get; set; }
         public string image { get; set; }
-
     }
 }
