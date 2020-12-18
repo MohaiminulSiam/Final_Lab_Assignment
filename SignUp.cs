@@ -67,6 +67,7 @@ namespace Final_Lab_Assignment
 
                         File.Move(this.file_path, destFile);
 
+                        this.Hide();
                         new LoginForm().ShowDialog();
                     }
                 }
