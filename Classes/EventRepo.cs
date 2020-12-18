@@ -19,9 +19,14 @@ namespace Final_Lab_Assignment_code.Classes
             diary_event.title = dataRow["title"].ToString();
             diary_event.description = dataRow["description"].ToString();
             diary_event.post_date = DateTime.Parse(dataRow["post_date"].ToString());
-            diary_event.last_modify_date = DateTime.Parse(dataRow["last_modify_date"].ToString());
-            diary_event.priority = Int32.Parse(dataRow["priority"].ToString());
+            if (String.IsNullOrEmpty(dataRow["last_modify_date"].ToString()) != true)
+            {
+                diary_event.last_modify_date = DateTime.Parse(dataRow["last_modify_date"].ToString());
+            }
+            diary_event.priority = dataRow["priority"].ToString();
             diary_event.image = dataRow["image"].ToString();
+            diary_event.user_FK = Int32.Parse(dataRow["user_FK"].ToString());
+
             return diary_event;
         }
 
@@ -43,7 +48,7 @@ namespace Final_Lab_Assignment_code.Classes
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + "\n Emp Repo");
+                MessageBox.Show(e.Message);
                 return false;
             }
             return delete;
@@ -75,12 +80,12 @@ namespace Final_Lab_Assignment_code.Classes
             try
             {
                 string query = null;
-                var sql = "select * from diary_events where empId = '" + diaryEvent.event_id + "';";
+                var sql = "select * from diary_events where event_id = '" + diaryEvent.event_id + "';";
                 var dt = DataAccess.GetDataTable(sql);
                 if (dt == null || dt.Rows.Count == 0)
                 {
-                    query = @"INSERT INTO Employee( title,description,post_date,last_modify_date,priority,overtime,eligible ,personId) " +
-                        "VALUES ('" + diaryEvent.title + "','" + diaryEvent.description + "','" + diaryEvent.post_date + "','" + diaryEvent.last_modify_date + "','" + diaryEvent.priority + "') ;";
+                    query = @"INSERT INTO diary_events( title,description,post_date,last_modify_date,priority,user_FK) " +
+                        "VALUES ('" + diaryEvent.title + "','" + diaryEvent.description + "','" + diaryEvent.post_date + "','" + diaryEvent.last_modify_date + "','" + diaryEvent.priority + "','" + diaryEvent.user_FK+ "') ;";
                     int insRow = DataAccess.ExecuteQuery(query);
                     if (insRow == 1)
                     {
@@ -104,24 +109,25 @@ namespace Final_Lab_Assignment_code.Classes
             return added;
         }
 
-        internal List<DiaryEvents> GetDiaryEvents()
+        internal List<DiaryEvents> GetDiaryEvents(int user_FK)
         {
             List<DiaryEvents> diaryEvents = new List<DiaryEvents>();
             try
             {
-                var query = @"SELECT * FROM diary_events; ";
+                var query = @"SELECT * FROM diary_events where user_FK = " + user_FK + ";";
                 var dt = DataAccess.GetDataTable(query);
                 int index = 0;
                 while (index < dt.Rows.Count)
                 {
-                    DiaryEvents diaryEvent = new DiaryEvents();
-                    diaryEvent = ConvertToEntity(dt.Rows[index]);
-                    diaryEvents.Add(diaryEvent);
+                    DiaryEvents diaryEv = new DiaryEvents();
+                    diaryEv = ConvertToEntity(dt.Rows[index]);
+                    diaryEvents.Add(diaryEv);
                     index++;
                 }
             }
             catch
             {
+                MessageBox.Show("Data Not Loaded \n Data :: NULL");
                 return null;
             }
             return diaryEvents;

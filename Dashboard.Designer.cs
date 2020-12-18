@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -43,6 +46,7 @@
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_createEvent = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_events)).BeginInit();
@@ -90,6 +94,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_createEvent);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dgv_events);
             this.panel1.Location = new System.Drawing.Point(0, 25);
@@ -102,6 +107,15 @@
             this.dgv_events.AllowUserToAddRows = false;
             this.dgv_events.AllowUserToDeleteRows = false;
             this.dgv_events.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_events.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_events.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_events.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.event_id,
@@ -110,17 +124,39 @@
             this.created_at,
             this.modify_date,
             this.priority});
-            this.dgv_events.Location = new System.Drawing.Point(12, 61);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_events.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_events.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_events.Location = new System.Drawing.Point(12, 41);
+            this.dgv_events.MultiSelect = false;
             this.dgv_events.Name = "dgv_events";
             this.dgv_events.ReadOnly = true;
-            this.dgv_events.Size = new System.Drawing.Size(1134, 599);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_events.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_events.RowHeadersVisible = false;
+            this.dgv_events.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_events.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_events.Size = new System.Drawing.Size(1134, 631);
             this.dgv_events.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Swis721 BlkCn BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(12, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 25);
             this.label1.TabIndex = 1;
@@ -137,10 +173,12 @@
             // 
             // image
             // 
+            this.image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.image.DataPropertyName = "image";
             this.image.HeaderText = "Image";
             this.image.Name = "image";
             this.image.ReadOnly = true;
+            this.image.Visible = false;
             // 
             // event_title
             // 
@@ -158,6 +196,7 @@
             this.created_at.HeaderText = "Create Date";
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
+            this.created_at.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.created_at.ToolTipText = "Create Date";
             // 
             // modify_date
@@ -176,6 +215,19 @@
             this.priority.HeaderText = "Priority";
             this.priority.Name = "priority";
             this.priority.ReadOnly = true;
+            // 
+            // btn_createEvent
+            // 
+            this.btn_createEvent.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_createEvent.FlatAppearance.BorderSize = 0;
+            this.btn_createEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_createEvent.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_createEvent.Location = new System.Drawing.Point(928, 678);
+            this.btn_createEvent.Name = "btn_createEvent";
+            this.btn_createEvent.Size = new System.Drawing.Size(218, 45);
+            this.btn_createEvent.TabIndex = 2;
+            this.btn_createEvent.Text = "Create New Event";
+            this.btn_createEvent.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -208,6 +260,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_events;
+        private System.Windows.Forms.Button btn_createEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn event_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn event_title;

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Final_Lab_Assignment_code.Classes;
 
 namespace Final_Lab_Assignment_code
 {
@@ -25,25 +26,19 @@ namespace Final_Lab_Assignment_code
         {
             try
             {
-                string query = @"select * from users where email = '" + this.email_txtBox.Text +
-                               "'and password = '" + this.password_txtBox.Text + "';";
-                DataTable ds = DataAccess.GetDataTable(query);
+                User user = UserRepo.GetUserDetail(this.email_txtBox.Text, this.password_txtBox.Text);
                 int serial = 0;
-                if (ds.Rows.Count > 0)
+                if (user != null)
                 {
-                    while (serial <= (ds.Rows.Count - 1))
+                    if (user.email.Equals(this.email_txtBox.Text) && user.password.Equals(this.password_txtBox.Text))
                     {
-                        if (ds.Rows[serial][2].ToString().Equals(this.email_txtBox.Text) && ds.Rows[serial][3].ToString().Equals(this.password_txtBox.Text))
-                        {
-                            this.Hide();
-                            Dashboard dashboard = new Dashboard();
-                            dashboard.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Log in failed...\n Password or user name did not match !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                        }
-                        serial++;
+                        this.Hide();
+                        Dashboard dashboard = new Dashboard(this, user);
+                        dashboard.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Log in failed...\n Password or user name did not match !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     }
                 }
                 else
