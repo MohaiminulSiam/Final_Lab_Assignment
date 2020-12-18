@@ -1,0 +1,10 @@
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.csprojAssemblyReference.cache
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.LoginForm.resources
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.Properties.Resources.resources
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.csproj.GenerateResource.cache
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.csproj.CoreCompileInputs.cache
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment_code.exe.config
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment_code.exe
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment_code.pdb
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.exe
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment_code.pdb
