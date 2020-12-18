@@ -12,63 +12,47 @@ namespace Final_Lab_Assignment
 {
     public class DataAccess
     {
-        private SqlConnection sqlcon;
-        public SqlConnection Sqlcon
+        private static SqlConnection sqlCon;
+
+        public static SqlConnection SqlCon
         {
-            get { return sqlcon; }
-            set { sqlcon = value; }
+            get
+            {
+                if (sqlCon == null)
+                {
+                    sqlCon = new SqlConnection(@"Data Source=DESKTOP-32IK7D6;Initial Catalog=final_cSharp;Persist Security Info=True;User ID=sa;Password=fahim");
+                }
+                else if (sqlCon.State != ConnectionState.Open)
+                {
+                    sqlCon.Open();
+                }
+                return sqlCon;
+            }
         }
 
-        private SqlCommand sqlcom;
-        public SqlCommand Sqlcom
+        private static DataSet GetDataSet(string query)
         {
-            get { return sqlcom; }
-            set { sqlcom = value; }
+            SqlCommand sqcom = new SqlCommand(query, SqlCon);
+            SqlDataAdapter sda = new SqlDataAdapter(sqcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
         }
 
-        private SqlDataAdapter sda;
-        public SqlDataAdapter Sda
+        public static DataTable GetDataTable(string query)
         {
-            get { return sda; }
-            set { sda = value; }
+            var ds = GetDataSet(query);
+            if (ds.Tables.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            return null;
         }
 
-        private DataSet ds;
-        public DataSet Ds
+        public static int ExecuteQuery(string query)
         {
-            get { return ds; }
-            set { ds = value; }
-        }
-
-        //internal DataTable dt;
-
-        public DataAccess()
-        {
-            this.Sqlcon = new SqlConnection(@"Data Source=DESKTOP-32IK7D6;
-                                        Initial Catalog=final_cSharp;
-                                        User ID=sa;Password=fahim");
-            Sqlcon.Open();
-        }
-
-        private void QueryText(string query)
-        {
-            this.Sqlcom = new SqlCommand(query, this.Sqlcon);
-        }
-
-        public DataSet ExecuteQuery(string sql)
-        {
-            this.QueryText(sql);
-            this.Sda = new SqlDataAdapter(this.Sqlcom);
-            this.Ds = new DataSet();
-            this.Sda.Fill(this.Ds);
-            return Ds;
-        }
-
-        public int ExecuteUpdateQuery(string sql)
-        {
-            this.QueryText(sql);
-            int u = this.Sqlcom.ExecuteNonQuery();
-            return u;
+            SqlCommand sqcom = new SqlCommand(query, SqlCon);
+            return sqcom.ExecuteNonQuery();
         }
     }
 }
