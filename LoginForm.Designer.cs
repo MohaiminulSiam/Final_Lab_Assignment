@@ -1,4 +1,4 @@
-﻿namespace Final_Lab_Assignment_code
+﻿namespace Final_Lab_Assignment
 {
     partial class LoginForm
     {
@@ -34,6 +34,7 @@
             this.btn_signin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_signup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +58,7 @@
             // password_txtBox
             // 
             this.password_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_txtBox.Location = new System.Drawing.Point(132, 208);
+            this.password_txtBox.Location = new System.Drawing.Point(132, 214);
             this.password_txtBox.Name = "password_txtBox";
             this.password_txtBox.PasswordChar = '*';
             this.password_txtBox.Size = new System.Drawing.Size(313, 29);
@@ -69,7 +70,8 @@
             this.btn_signin.BackColor = System.Drawing.Color.DarkCyan;
             this.btn_signin.FlatAppearance.BorderSize = 0;
             this.btn_signin.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_signin.Location = new System.Drawing.Point(203, 262);
+            this.btn_signin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_signin.Location = new System.Drawing.Point(298, 270);
             this.btn_signin.Name = "btn_signin";
             this.btn_signin.Size = new System.Drawing.Size(169, 53);
             this.btn_signin.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(129, 117);
+            this.label2.Location = new System.Drawing.Point(129, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 24);
             this.label2.TabIndex = 4;
@@ -91,17 +93,32 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(129, 181);
+            this.label3.Location = new System.Drawing.Point(129, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 24);
             this.label3.TabIndex = 5;
             this.label3.Text = "Enter Password";
+            // 
+            // btn_signup
+            // 
+            this.btn_signup.BackColor = System.Drawing.Color.DarkCyan;
+            this.btn_signup.FlatAppearance.BorderSize = 0;
+            this.btn_signup.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_signup.Location = new System.Drawing.Point(102, 270);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(169, 53);
+            this.btn_signup.TabIndex = 6;
+            this.btn_signup.Text = "Sign Up";
+            this.btn_signup.UseVisualStyleBackColor = false;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 356);
+            this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_signin);
@@ -124,6 +141,7 @@
         private System.Windows.Forms.Button btn_signin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_signup;
     }
 }
 

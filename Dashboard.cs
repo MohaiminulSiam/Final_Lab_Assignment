@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Final_Lab_Assignment_code.Classes;
+using Final_Lab_Assignment.Classes;
 
-namespace Final_Lab_Assignment_code
+namespace Final_Lab_Assignment
 {
     public partial class Dashboard : Form
     {

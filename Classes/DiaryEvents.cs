@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Final_Lab_Assignment_code.Classes
+namespace Final_Lab_Assignment.Classes
 {
     public class DiaryEvents
     {

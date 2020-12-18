@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Final_Lab_Assignment_code
+namespace Final_Lab_Assignment
 {
     static class Program
     {

@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Final_Lab_Assignment_code.Classes;
+using Final_Lab_Assignment.Classes;
 
-namespace Final_Lab_Assignment_code
+namespace Final_Lab_Assignment
 {
     public partial class LoginForm : Form
     {
@@ -66,6 +66,12 @@ namespace Final_Lab_Assignment_code
                 MessageBox.Show("Incorrect Mail Address !!!", "ERROR 404", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 this.email_txtBox.Clear();
             }
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new SignUp().ShowDialog();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Final_Lab_Assignment_code
+﻿namespace Final_Lab_Assignment
 {
     partial class Dashboard
     {

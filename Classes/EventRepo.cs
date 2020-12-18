@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Final_Lab_Assignment;
-using Final_Lab_Assignment_code.Classes;
+using Final_Lab_Assignment.Classes;
 
-namespace Final_Lab_Assignment_code.Classes
+namespace Final_Lab_Assignment.Classes
 {
     public class EventRepo
     {

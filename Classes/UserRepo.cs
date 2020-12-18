@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Final_Lab_Assignment;
-using Final_Lab_Assignment_code.Classes;
-namespace Final_Lab_Assignment_code.Classes
+using Final_Lab_Assignment.Classes;
+
+namespace Final_Lab_Assignment.Classes
 {
     public class UserRepo
     {
@@ -56,6 +57,48 @@ namespace Final_Lab_Assignment_code.Classes
                 string updateQuery = @"UPDATE diary_events SET title = '" + diaryEvent.title + "', description = " + diaryEvent.description + " , last_modify_date = '" + DateTime.Now.ToString("yyyy-MM-dd") +
                                     "', priority = '" + diaryEvent.priority + "', image = '" + diaryEvent.image + "' WHERE event_id = '" + diaryEvent.event_id + "';";
                 int row = DataAccess.ExecuteQuery(updateQuery);
+                if (row == 1)
+                {
+                    inserted = true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return inserted;
+        }
+    
+        internal static bool CheckUserExist(string email)
+        {
+            try
+            {
+                var query = @"SELECT * FROM users where email LIKE '%" + email + "%';";
+                var dt = DataAccess.GetDataTable(query);
+                if (dt.Rows.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    
+        internal static bool InsertUser(User user)
+        {
+            bool inserted = false;
+            try
+            {
+                string query = @"INSERT INTO [dbo].[users]([name],[email],[password],[phone],[address],[image],[join_date])
+                                VALUES( '"+user.name+ "' ,'" + user.email + "','" + user.password + "','" + user.phone + "','" + user.address + 
+                                "','" + user.image + "','" + user.join_date + "')";
+                int row = DataAccess.ExecuteQuery(query);
                 if (row == 1)
                 {
                     inserted = true;
