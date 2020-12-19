@@ -175,6 +175,7 @@
             this.dgv_events.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_events.Size = new System.Drawing.Size(1134, 631);
             this.dgv_events.TabIndex = 0;
+            this.dgv_events.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_events_CellContentClick);
             // 
             // event_id
             // 

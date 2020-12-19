@@ -55,7 +55,8 @@ namespace Final_Lab_Assignment
 
             if (open.ShowDialog() == DialogResult.OK)
             {
-                this.diaryEvent.image = Path.GetFileName(open.FileName);
+                Random random = new Random();
+                this.diaryEvent.image = random.Next(100000, 1000000) + "_" + Path.GetFileName(open.FileName);
                 this.file_path = open.FileName;
             }
         }
@@ -73,7 +74,7 @@ namespace Final_Lab_Assignment
             if (insert)
             {
                 
-                string destFile = Path.Combine(targetPath, this.user.image);
+                string destFile = Path.Combine(targetPath, this.diaryEvent.image);
 
                 File.Copy(this.file_path, destFile);
                 MessageBox.Show("Event Added Successfully..");

@@ -13,3 +13,4 @@ E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\bin\Debug\Final_Lab_Assignment.pd
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.exe
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.pdb
 E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.CreateEvent.resources
+E:\AIUB 10th SEM\SIYAM\C#\Final_Lab_Assignment\obj\Debug\Final_Lab_Assignment.EditEvent.resources

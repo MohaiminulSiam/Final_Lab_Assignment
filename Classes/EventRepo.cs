@@ -59,8 +59,13 @@ namespace Final_Lab_Assignment.Classes
             bool inserted = false;
             try
             {
-                string updateQuery = @"UPDATE diary_events SET title = '" + diaryEvent.title + "', description = " + diaryEvent.description + " , last_modify_date = '" + DateTime.Now.ToString("yyyy-MM-dd") +
-                                    "', priority = '" + diaryEvent.priority + "', image = '" + diaryEvent.image + "' WHERE event_id = '" + diaryEvent.event_id + "';";
+                string updateQuery = @"UPDATE [dbo].[diary_events]
+                                       SET [title] = '" + diaryEvent.title +
+                                          "',[description] = '" + diaryEvent.description +
+                                          "',[last_modify_date] = '" + DateTime.Now +
+                                          "',[priority] = '" + diaryEvent.priority +
+                                          "',[image] = '" + diaryEvent.image +
+                                     "' WHERE event_id = '" + diaryEvent.event_id + "'";
                 int row = DataAccess.ExecuteQuery(updateQuery);
                 if (row == 1)
                 {
@@ -117,6 +122,28 @@ namespace Final_Lab_Assignment.Classes
                 return null;
             }
             return diaryEvents;
+        }
+    
+        internal DiaryEvents Search(int event_id, int user_FK)
+        {
+            DiaryEvents diaryEvent = new DiaryEvents();
+            try
+            {
+                var query = @"SELECT * FROM diary_events where event_id = '" + event_id + "' AND user_FK = " + user_FK + ";";
+                var dt = DataAccess.GetDataTable(query);
+                int index = 0;
+                while (index < dt.Rows.Count)
+                {
+                    diaryEvent = ConvertToEntity(dt.Rows[index]);
+                    index++;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Data Not Loaded \n Data :: NULL");
+                return null;
+            }
+            return diaryEvent;
         }
     }
 }

@@ -54,5 +54,22 @@ namespace Final_Lab_Assignment
             this.Hide();
             new CreateEvent(this.user).ShowDialog();
         }
+
+        private void dgv_events_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgv_events.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                this.dgv_events.CurrentRow.Selected = true;
+
+                DiaryEvents d_event = new DiaryEvents();
+                d_event = this.EventRepo.Search(Int32.Parse(this.dgv_events.Rows[e.RowIndex].Cells["event_id"].FormattedValue.ToString()), this.user.user_id);
+                this.Hide();
+                new EditEvent(d_event, this.user).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please Select An Event to edit");
+            }
+        }
     }
 }
